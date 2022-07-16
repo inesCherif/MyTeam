@@ -1,0 +1,210 @@
+pas d'affichage:
+
+
+import React from "react";
+import TeamMember from "./TeamMember";
+
+function Team(){
+    const info= [ 
+        {
+            id:1,
+            Name:'Ines Cherif',
+            img:"/images/ines.png",
+            position:"étudiante 2ème année BI FSEGT",
+            phone:"+216 23 364 077",
+            email:"ines.cherif.tn@gmail.com",
+            facebook:<a href="https://www.facebook.com/ines.02362">https://www.facebook.com/ines.02362</a>
+        },
+
+        {
+            id:2,
+            Name:'Khaled Cherif',
+            img:"/images/khaled.png",
+            position:"employé",
+            phone:"+216 93 025 737",
+            email:"tahernwira839@gmail.com",
+            facebook:<a href="https://www.facebook.com/kaled.cherif.3">https://www.facebook.com/kaled.cherif.3</a> 
+        },
+        {
+            id:3,
+            Name:'Iyed Gammar',
+            img:"/images/iyed.png",
+            position:"étudiant 2ème année BI FSEGT",
+            phone:"",
+              email:"iyed.grr@gmail.com",
+            facebook:<a href="https://www.facebook.com/iyedGr">https://www.facebook.com/iyedGr</a>
+        },
+    ]
+
+//emchi el info w koul object elli entre koul {} men info sammih member w naffadh aalih al eti:
+const members = info.map (member=> <TeamMember
+           key={member.id} 
+           img={member.img}
+           name={member.Name}
+           position={member.position}
+           phone={member.phone}
+           email={member.email}
+           facebook={member.facebook}
+        />
+        );
+
+
+
+    return (
+        <div className="row">
+            {members}
+        </div>    
+    )
+}
+
+export default Team;
+
+
+////////////////////////avec class///////////////////
+
+
+import React,{Component} from "react";
+import TeamMember from "./TeamMember";
+
+class Team extends Component{
+render(){
+
+    const info= [ 
+        {
+            id:1,
+            Name:'Ines Cherif',
+            img:"/images/ines.png",
+            position:"étudiante 2ème année BI FSEGT",
+            phone:"+216 23 364 077",
+            email:"ines.cherif.tn@gmail.com",
+            facebook:<a href="https://www.facebook.com/ines.02362">https://www.facebook.com/ines.02362</a>
+        },
+
+        {
+            id:2,
+            Name:'Khaled Cherif',
+            img:"/images/khaled.png",
+            position:"employé",
+            phone:"+216 93 025 737",
+            email:"tahernwira839@gmail.com",
+            facebook:<a href="https://www.facebook.com/kaled.cherif.3">https://www.facebook.com/kaled.cherif.3</a> 
+        },
+        {
+            id:3,
+            Name:'Iyed Gammar',
+            img:"/images/iyed.png",
+            position:"étudiant 2ème année BI FSEGT",
+            phone:"",
+              email:"iyed.grr@gmail.com",
+            facebook:<a href="https://www.facebook.com/iyedGr">https://www.facebook.com/iyedGr</a>
+        },
+    ]
+
+
+           const members = info.map (member=> <TeamMember
+           key={member.id} 
+           img={member.img}
+           Name={member.Name}
+           position={member.position}
+           phone={member.phone}
+           email={member.email}
+           facebook={member.facebook}
+        />
+        );
+
+
+
+    return (
+        <div className="row">
+            {members}
+        </div>    
+    )
+}
+}
+
+export default Team;
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React,{Component} from "react";
+import TeamMember from "./TeamMember";
+
+class Team extends Component{
+    constructor(){
+        super()
+        this.state ={
+            memberInfo: [ 
+                {id:1, Name:'Ines Cherif',   img:"/images/ines.png",   position:"étudiante 2ème année BI FSEGT",  phone:"+216 23 364 077",  email:"ines.cherif.tn@gmail.com", facebook:<a href="https://www.facebook.com/ines.02362">https://www.facebook.com/ines.02362</a> },
+                {id:2, Name:'Khaled Cherif', img:"/images/khaled.png", position:"employé",                        phone:"+216 93 025 737",  email:"tahernwira839@gmail.com",  facebook:<a href="https://www.facebook.com/kaled.cherif.3">https://www.facebook.com/kaled.cherif.3</a> },
+                {id:3, Name:'Iyed Gammar',   img:"/images/iyed.png",   position:"étudiant 2ème année BI FSEGT",   phone:"",                 email:"iyed.grr@gmail.com",       facebook:<a href="https://www.facebook.com/iyedGr">https://www.facebook.com/iyedGr</a>},
+            ]
+        }
+    }
+
+    render(){
+
+        const members = this.state.memberInfo.map (member=> <TeamMember
+            key={member.id} 
+            img={member.img}
+            Name={member.Name}
+            position={member.position}
+            phone={member.phone}
+            email={member.email}
+            facebook={member.facebook}
+         />);
+
+    return (//en principe nihi kol chay w n7ot entr div kn  {members} ema jtnich exécutabl hakk
+        <div className="row"> 
+            <TeamMember 
+            info={{
+                Name:'Ines Cherif',
+                img:"/images/ines.png",
+                position:"étudiante 2ème année BI FSEGT",
+                phone:"+216 23 364 077",
+                email:"ines.cherif.tn@gmail.com",
+                facebook:<a href="https://www.facebook.com/ines.02362">https://www.facebook.com/ines.02362</a>
+            }}
+            />
+
+            <TeamMember 
+            info={{
+                Name:'Khaled Cherif',
+                img:"/images/khaled.png",
+                position:"employé",
+                phone:"+216 93 025 737",
+                email:"tahernwira839@gmail.com",
+                facebook:<a href="https://www.facebook.com/kaled.cherif.3">https://www.facebook.com/kaled.cherif.3</a>
+            }}
+            />
+            
+
+            <TeamMember 
+            info={{
+                Name:'Iyed Gammar',
+                img:"/images/iyed.png",
+                position:"étudiant 2ème année BI FSEGT",
+                phone:"",
+                email:"iyed.grr@gmail.com",
+                facebook:<a href="https://www.facebook.com/iyedGr">https://www.facebook.com/iyedGr</a>
+            }}
+            />
+
+
+        </div>
+
+        
+    )
+        }
+}
+
+export default Team;
